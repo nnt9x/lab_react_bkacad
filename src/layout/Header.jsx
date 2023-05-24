@@ -1,17 +1,14 @@
 import { NavLink } from "react-router-dom";
 
 export function Header(props) {
-
-    function handleSubmit(e) {
-        e.preventDefault();
-    }
+	function handleSubmit(e) {
+		e.preventDefault();
+	}
 
 	return (
 		<nav className="navbar navbar-expand-lg bg-light">
 			<div className="container-fluid">
-				<span className="navbar-brand">
-					BKACAD
-				</span>
+				<span className="navbar-brand">BKACAD</span>
 				<button
 					className="navbar-toggler"
 					type="button"
@@ -27,9 +24,7 @@ export function Header(props) {
 					id="navbarSupportedContent">
 					<ul className="navbar-nav me-auto mb-2 mb-lg-0">
 						<li className="nav-item">
-							<NavLink
-								className="nav-link"
-								to={"/user"}>
+							<NavLink className="nav-link" to={"/user"}>
 								Home
 							</NavLink>
 						</li>
@@ -39,14 +34,19 @@ export function Header(props) {
 							</NavLink>
 						</li>
 					</ul>
-					<form className="d-flex" role="search" onSubmit={(e) => handleSubmit(e)}>
+					<form
+						className="d-flex"
+						role="search"
+						onSubmit={(e) => handleSubmit(e)}>
 						<input
 							className="form-control me-2"
 							type="search"
 							placeholder="Search"
 							aria-label="Search"
 						/>
-						<button className="btn btn-outline-success" type="submit">
+						<button
+							className="btn btn-outline-success"
+							type="submit">
 							Search
 						</button>
 					</form>
