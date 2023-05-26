@@ -1,8 +1,15 @@
+import { useContext, useState } from "react";
 import { NavLink } from "react-router-dom";
+import { AppContext } from "../context/AppContext";
 
-export function Header(props) {
+export function Header() {
+	const { onSearch } = useContext(AppContext);
+
+	const [value, setValue] = useState("");
+
 	function handleSubmit(e) {
 		e.preventDefault();
+		onSearch(value);
 	}
 
 	return (
@@ -40,9 +47,11 @@ export function Header(props) {
 						onSubmit={(e) => handleSubmit(e)}>
 						<input
 							className="form-control me-2"
+							value={value}
 							type="search"
 							placeholder="Search"
 							aria-label="Search"
+							onChange={(e) => setValue(e.target.value)}
 						/>
 						<button
 							className="btn btn-outline-success"

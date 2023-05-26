@@ -17,9 +17,16 @@ function App() {
 			.catch((error) => console.log(error));
 	}, []);
 
+	function onSearch(keyword) {
+		fetch(`https://dummyjson.com/users/search?q=${keyword}&limit=12`)
+			.then((response) => response.json())
+			.then((data) => setUsers(data.users))
+			.catch((error) => console.log(error));
+	}
+
 	return (
 		<BrowserRouter>
-			<AppContext.Provider value={{ users }}>
+			<AppContext.Provider value={{ users, onSearch }}>
 				<div className="app container">
 					<Header />
 					{/* Content */}

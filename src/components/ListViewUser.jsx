@@ -12,7 +12,11 @@ export function ListViewUser({ users }) {
 	);
 	return (
 		<div className="container">
-			{users.length !== 0 ? listView : "Không có dữ liệu"}
+			{users.length !== 0 ? (
+				listView
+			) : (
+				<p className="display-6 mx-3 text-center">Không có dữ liệu</p>
+			)}
 		</div>
 	);
 }
